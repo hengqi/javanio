@@ -9,14 +9,22 @@ public class NioTest1 {
 
         IntBuffer buffer = IntBuffer.allocate(10);
 
-        for (int i = 0; i < buffer.capacity(); i++) {
+        System.out.println("capacity: " + buffer.capacity());
+
+        for (int i = 0; i <5; i++) {
             int random = new SecureRandom().nextInt(20);
             buffer.put(random);
         }
 
+        System.out.println("before flip limit: " + buffer.limit());
         buffer.flip();
+        System.out.println("after flip limit: " + buffer.limit());
 
         while (buffer.hasRemaining()) {
+            System.out.println("position: " + buffer.position());
+            System.out.println("limit: " + buffer.limit());
+            System.out.println("capacity: " + buffer.capacity());
+
             System.out.println(buffer.get());
         }
     }
@@ -39,9 +47,18 @@ Channel指的是可以向其写入数据或从中读取数据的对象，它类�
 
 由于Channel是双向的，因此它能更好的反应出底层操作系统的真是情况；比如在Linux系统中，底层操作系统的通道就是双向的。
 
+关于NIO Buffer中3个重要状态属性的含义：position, limit, capacity.
 
+0 <= mark <= position <= limit <= capacity
 
+通过NIO读取文件涉及3个步骤：
+1. 从FileInputStream获取到FileChannel对象
+2. 创建Buffer。
+3. 将数据从Channel读取到Buffer中。
 
+绝对方法与相对方法
+1. 相对方法：limit值与position值会在操作的时候被考虑到
+2. 绝对方法：完全忽略掉limit值与position值
 
 
  */

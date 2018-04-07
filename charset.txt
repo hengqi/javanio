@@ -1,0 +1,31 @@
+1. ASCII 美国信息交换标准码
+使用7个bit来表示一个字符，共计可以表示128种字符
+
+2. ISO-8859-1
+使用8个bit来表示一个字符,即一个字节，共计可以表示256种字符
+
+3. gb2312
+使用两个字节来表示一个汉字
+
+4. gbk 对gb2312的一种扩展
+
+5. gb18030 最完整的一种汉字表示字符集
+
+6. big5 台湾使用
+
+7. unicode
+统一使用两个字节来表示一个字符。
+
+8. utf Unicode Translation Format
+
+unicode是一种编码格式，而utf是一种存储方式。UTF-8是Unicode的实现方式之一。
+
+UTF-16LE little endian
+UTF-16BE big endian
+
+Zero Width No-Break Space, 0xFEFF(BE), 0XFFFE(LE)
+
+9. utf-8,变长字节表示形式
+使用3个字节来表示一个中文
+
+BOM(Byte Order Mark),字节序

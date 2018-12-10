@@ -18,7 +18,8 @@ public class NioTest2 {
 
         while (byteBuffer.remaining() > 0) {
             byte b = byteBuffer.get();
-            System.out.println("Character: " + (char) b);
+//            System.out.println("Character: " + (char) b);
+            System.out.print((char) b);
         }
 
         fileInputStream.close();
